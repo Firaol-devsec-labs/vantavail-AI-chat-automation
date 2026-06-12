@@ -64,7 +64,7 @@ Designed with a modern PyQt6 interface, the application provides real-time monit
   <img src="assets/scheduled-appointments.png" width="48%">
   <img src="assets/settings.png" width="48%">
 </p>
----
+
 ## ✨ Features
 
 - 🤖 AI-powered automatic replies
