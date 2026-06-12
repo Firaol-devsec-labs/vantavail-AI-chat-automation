@@ -158,7 +158,7 @@ cp .env.example .env
 
 For Windows:
 
-```bash
+```cmd
 copy .env.example .env
 ```
 
