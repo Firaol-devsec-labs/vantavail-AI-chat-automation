@@ -177,6 +177,14 @@ AI_PROVIDER=gemini
 GEMINI_API_KEY=your_api_key
 ```
 
+# OR
+
+
+> 💡 **Using OpenRouter.ai (Free Alternative):**
+> 
+> You can use OpenRouter.ai for free. Simply obtain your API key from [openrouter.ai](https://openrouter.ai) and use it in place of the `DEEPSEEK_API_KEY` value. Keep the variable name `DEEPSEEK_API_KEY` unchanged.
+
+
 ### 5️⃣ Launch Application
 
 ```bash
