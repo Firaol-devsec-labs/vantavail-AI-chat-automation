@@ -1,14 +1,96 @@
-# 📦 Telegram Chat Automation App
+# 🤖 Vantavail AI Telegram Automation
 
-[![GitHub license](https://img.shields.io/github/license/your-username/chat-automation-app?style=flat-square)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.11%2B-blue?style=flat-square)](https://www.python.org/downloads/)
-[![Stars](https://img.shields.io/github/stars/your-username/chat-automation-app?style=flat-square)](https://github.com/your-username/chat-automation-app/stargazers)
+<p align="center">
+  <strong>Professional AI-Powered Telegram Auto-Reply Desktop Application</strong>
+</p>
+
+<p align="center">
+Built with Python • PyQt6 • Telethon • DeepSeek • Gemini
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/PyQt6-Desktop_App-41CD52?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Telegram-MTProto-26A5E4?style=for-the-badge&logo=telegram&logoColor=white">
+  <img src="https://img.shields.io/badge/AI-Gemini_|_DeepSeek-purple?style=for-the-badge">
+  <img src="https://img.shields.io/badge/License-MIT-success?style=for-the-badge">
+</p>
+
+<p align="center">
+  <strong>Automate Telegram conversations intelligently using modern AI providers.</strong>
+</p>
 
 ---
 
-## ✨ Overview
+## 📚 Table of Contents
 
-A **professional‑grade** Python desktop application that connects to **Telegram via the MTProto API** and **automatically replies** to private messages using **AI providers** like **DeepSeek** or **Google Gemini**. The UI is built with **PyQt6**, featuring a modern dark theme, real‑time dashboard, and a persistent SQLite log.
+* Overview
+* Screenshots
+* Features
+* Technology Stack
+* Project Structure
+* Quick Start
+* Usage
+* Architecture
+* Project Status
+* Roadmap
+* Contributing
+* License
+* Support
+
+---
+
+## 📖 Overview
+
+Vantavail AI Telegram Automation is a desktop application that connects directly to Telegram through the MTProto API and automatically responds to incoming private messages using advanced AI models such as DeepSeek and Google Gemini.
+
+Designed with a modern PyQt6 interface, the application provides real-time monitoring, configurable chat scopes, conversation logging, and flexible automation controls while maintaining a responsive user experience through asynchronous processing.
+
+---
+
+## 📸 Application Preview
+
+<p align="center">
+  <img src="assets/dashboard-connected.png" width="48%">
+  <img src="assets/automation-control.png" width="48%">
+</p>
+
+<p align="center">
+  <img src="assets/chat-scope.png" width="48%">
+  <img src="assets/security.png" width="48%">
+</p>
+
+<p align="center">
+  <img src="assets/scheduled-appointments.png" width="48%">
+  <img src="assets/settings.png" width="48%">
+</p>
+---
+## ✨ Features
+
+- 🤖 AI-powered automatic replies
+- 💬 Telegram MTProto integration
+- ⚡ DeepSeek AI support
+- ⚡ Google Gemini AI support
+- 🎨 Modern PyQt6 desktop interface
+- 📊 Real-time monitoring dashboard
+- 📋 Chat inclusion & exclusion management
+- 🔒 SQLite conversation logging
+- 🚀 Fully asynchronous architecture
+- ⚙️ Dynamic AI provider switching
+
+---
+
+## 🛠 Technology Stack
+
+| Category      | Technology              |
+| ------------- | ----------------------- |
+| Language      | Python 3.11+            |
+| GUI Framework | PyQt6                   |
+| Telegram API  | Telethon                |
+| Database      | SQLite                  |
+| Networking    | aiohttp                 |
+| AI Providers  | DeepSeek, Google Gemini |
+| Configuration | dotenv                  |
 
 ---
 
@@ -16,20 +98,26 @@ A **professional‑grade** Python desktop application that connects to **Telegra
 
 ```text
 chat_automation_app/
-├── main.py                # Entry point – bootstraps Qt UI + async loop
-├── config.py              # Loads and validates .env variables
-├── requirements.txt       # Python dependencies
-├── .env.example           # Template for environment variables
-│
-├── ui/                    # PyQt6 UI components
+├── main.py
+├── config.py
+├── requirements.txt
+├── .env.example
+├── assets/ 
+│   ├── dashboard-connected.png
+│   ├── automation-control.png
+│   ├── chat-scope.png
+│   ├── security.png
+│   ├── scheduled-appointments.png
+│   └── settings.png
+├── ui/
 │   ├── main_window.py
 │   └── components.py
 │
-├── core/                  # Core logic
-│   ├── telegram_client.py # Telethon MTProto client & message handler
-│   └── ai_handler.py      # Async wrapper for DeepSeek / Gemini APIs
+├── core/
+│   ├── telegram_client.py
+│   └── ai_handler.py
 │
-└── database/              # SQLite helper
+└── database/
     └── db_manager.py
 ```
 
@@ -37,92 +125,202 @@ chat_automation_app/
 
 ## 🚀 Quick Start
 
-### 1️⃣ Prerequisites
+### 1️⃣ Clone Repository
 
-- **Python 3.11+** (recommended via `pyenv` or `conda`)
-- A **Telegram account** (not a bot token) – we use the **user MTProto API**
+```bash
+git clone https://github.com/Firaol-devsec-labs/vantavail-AI-chat-automation.git
 
-### 2️⃣ Install dependencies
+cd vantavail-AI-chat-automation
+```
+
+### 2️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Obtain Telegram API credentials
+### 3️⃣ Create Telegram API Credentials
 
-1. Visit **[my.telegram.org](https://my.telegram.org)** and log in.
-2. Open **API development tools** → **Create new application**.
-3. Copy the **API ID** and **API Hash**.
+1. Sign in to https://my.telegram.org
+2. Open **API Development Tools**
+3. Create a new application
+4. Copy your API ID and API Hash
 
-### 4️⃣ Configure the environment
+### 4️⃣ Configure Environment Variables
 
 ```bash
-# Copy the example and edit the placeholders
 cp .env.example .env
 ```
 
-Edit `.env` and fill in:
+Example configuration:
 
-- `TELEGRAM_API_ID` & `TELEGRAM_API_HASH`
-- Choose a provider (`AI_PROVIDER=deepseek` or `gemini`) and set the corresponding API key.
+```env
+TELEGRAM_API_ID=your_api_id
+TELEGRAM_API_HASH=your_api_hash
 
-### 5️⃣ Run the application
+AI_PROVIDER=deepseek
+DEEPSEEK_API_KEY=your_api_key
+
+# OR
+
+AI_PROVIDER=gemini
+GEMINI_API_KEY=your_api_key
+```
+
+### 5️⃣ Launch Application
 
 ```bash
 python main.py
 ```
 
-On first launch Telethon will prompt for your **phone number** and the **verification code** Telegram sends. After successful login a session file (`Vantavail_session.session`) is saved for future runs.
+On first launch, Telethon will request:
+
+* Telegram phone number
+* Verification code
+
+After successful login, a local session file is stored for future authentication.
 
 ---
 
-## 🛠️ Usage
+## 🛠 Usage
 
-| Page | Functionality |
-|------|----------------|
-| **Dashboard** | Shows connection status and basic stats |
-| **Automation** | Toggle auto‑reply, select AI provider, enable/disable scopes |
-| **Chat Scopes** | Add/remove chats from *exclusion* or *inclusion* lists |
-| **Logs & History** | View all AI‑generated replies |
-| **Settings** | Edit API keys directly from the UI (overrides `.env`) |
+### Dashboard
 
-### Scope Modes
+Monitor:
 
-- **All Private Chats Except Listed** – replies to everyone except the chats you add to the exclusion list.
-- **Only Listed Chats** – replies **only** to the chats you explicitly add.
+* Connection status
+* Provider status
+* Activity metrics
+* Automation statistics
+
+### Automation
+
+* Enable or disable auto-replies
+* Select AI provider
+* Configure automation behavior
+
+### Chat Scope Management
+
+#### All Private Chats Except Listed
+
+Automatically responds to all private chats except those added to the exclusion list.
+
+#### Only Listed Chats
+
+Responds only to chats explicitly added to the inclusion list.
+
+### Logs & History
+
+Review:
+
+* AI-generated replies
+* Message history
+* Activity logs
 
 ---
 
-## 🏗️ Architecture Highlights
+## 🏗 Architecture
 
-- **Async event loop** runs in a **dedicated background thread**, keeping the Qt UI responsive.
-- **TelegramBotClient** emits Qt **signals** to safely update the UI from the async thread.
-- AI calls use **`aiohttp`** with **automatic retries** and exponential back‑off.
-- SQLite access is guarded by a **threading lock**, preventing race conditions.
+```mermaid
+flowchart LR
+
+User --> Telegram
+
+Telegram --> Telethon_Client
+
+Telethon_Client --> AI_Handler
+
+AI_Handler --> DeepSeek
+
+AI_Handler --> Gemini
+
+AI_Handler --> SQLite_Database
+
+Telethon_Client --> Dashboard
+
+Dashboard --> User
+```
 
 ---
 
-## 📦 Adding a New AI Provider
+## 📈 Project Status
 
-1. Add the provider’s API key to `.env.example` and `config.py`.
-2. Implement a `_call_<provider>()` method in `core/ai_handler.py`.
-3. Extend the `if/elif` chain in `AIHandler.get_reply()`.
-4. Add the provider to the `QComboBox` in `ui/main_window.py → AutomationPage`.
+| Component                      | Status          |
+| ------------------------------ | ----------------|
+| Telegram MTProto Integration   | ✅ Complete     |
+| DeepSeek Integration           | ✅ Complete     |
+| Gemini Integration             | ✅ Complete     |
+| PyQt6 Dashboard                | ✅ Complete     |
+| SQLite Logging                 | ✅ Complete     |
+| Chat Scope Management          | ✅ Complete     |
+| Async Processing               | ✅ Complete     |
+| Responsive Layout Improvements | 🚧 In Progress |
+| Persistent Memory System       | 🚧 Planned     |
+| Smart User Recognition         | 🚧 Planned     |
 
 ---
 
-## 📄 License
+## 🗺️ Roadmap
 
-This project is licensed under the **MIT License** – see the `LICENSE` file for details.
+### Version 1.1
+
+* 📱 Responsive UI improvements
+* 🧠 Persistent conversation memory
+* 👥 Smart user recognition
+* 📊 Enhanced analytics dashboard
+* 📝 Advanced logging controls
+
+### Future Releases
+
+* Multi-account support
+* Plugin architecture
+* Additional AI providers
+* Exportable reports
+* Extended security controls
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please fork the repository, create a feature branch, and open a pull request. Follow the existing code style and run `flake8` before submitting.
+Contributions are welcome.
+
+```bash
+git fork
+git checkout -b feature/new-feature
+```
+
+Submit a pull request describing your improvements.
+
+Before submitting:
+
+```bash
+flake8
+```
+
+---
+
+## 📄 License
+
+Distributed under the MIT License.
+
+See the LICENSE file for additional information.
 
 ---
 
 ## 📞 Support
 
-For questions or issues, open a GitHub **Issue** or contact the maintainer at **Firaol** (Telegram username: `@Firaol`).
+**Maintainer:** Firaol Terefa
+
+**Telegram:** @vantavails
+
+**Email:** [firaolterefatolosa@gmail.com](mailto:firaolterefatolosa@gmail.com)
+
+---
+
+<p align="center">
+  ⭐ If you find this project useful, consider giving it a star.
+</p>
+
+<p align="center">
+Built with ❤️ using Python, Telethon, PyQt6, DeepSeek, and Gemini.
+</p>
